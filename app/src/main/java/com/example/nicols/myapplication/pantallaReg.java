@@ -24,9 +24,9 @@ public class pantallaReg extends AppCompatActivity {
     startActivity(intent);
 }
 
-public void clickRegistro (View v){
+public void clickRegistro (View v) {
 
-    BDUsuarios BDU = new BDUsuarios(getApplicationContext(),"Usuarios",null, 1);
+    BDUsuarios BDU = new BDUsuarios(getApplicationContext(), "Usuarios", null, 1);
     SQLiteDatabase bd = BDU.getWritableDatabase();
 
     EditText user = (EditText) findViewById(R.id.e_username);
@@ -41,33 +41,37 @@ public void clickRegistro (View v){
     strPass = pass.getText().toString();
     strNombre = nombre.getText().toString();
 
-   if (TextUtils.isEmpty(strUser)){
+    if (TextUtils.isEmpty(strUser)) {
         Toast.makeText(this, "falta User", Toast.LENGTH_LONG).show();
     }
-    if (TextUtils.isEmpty(strPass)){
+    if (TextUtils.isEmpty(strPass)) {
         Toast.makeText(this, "falta Password", Toast.LENGTH_LONG).show();
     }
-    if (TextUtils.isEmpty(strNombre)){
+    if (TextUtils.isEmpty(strNombre)) {
         Toast.makeText(this, "falta Nombre", Toast.LENGTH_LONG).show();
     }
 
-    String sqlquery = "select * from usuarios where username = '"+strUser+"'";
-    Cursor c = bd.rawQuery(sqlquery,null);
+    try {
+    String sqlquery = "select * from usuarios where username = '" + strUser + "'";
+    Cursor c = bd.rawQuery(sqlquery, null);
+        if (c.getCount() > 0) {
+            Toast.makeText(getApplicationContext(), "Usuario ya existe", Toast.LENGTH_SHORT).show();
+            c.close();
+        }
+        else {
+            ContentValues Nr = new ContentValues();
 
-    if (c.getCount() > 0) {
-        Toast.makeText(getApplicationContext(), "Usuario ya existe", Toast.LENGTH_SHORT).show();
+            Nr.put("username", strUser);
+            Nr.put("password", strPass);
+            Nr.put("user", strNombre);
 
+            bd.insert("usuarios", null, Nr);
+            Toast.makeText(getApplicationContext(), "Usuario creado", Toast.LENGTH_SHORT).show();
+        }
     }
-    else {
-        ContentValues Nr = new ContentValues();
-
-        Nr.put("username", strUser);
-        Nr.put("password", strPass);
-        Nr.put("user", strNombre);
-
-        bd.insert("usuarios", null, Nr);
-        Toast.makeText(getApplicationContext(), "Usuario creado", Toast.LENGTH_SHORT).show();
-    }
+    finally {
+        c.close();
+        }
 }
 
 }

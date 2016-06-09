@@ -6,4 +6,5 @@
     <string name="reg">Registrarse</string>
     <string name="nombre">Nombre:</string>
     <string name="back">Volver</string>
+    <string name="logged">Login realizado con exito </string>
 </resources>

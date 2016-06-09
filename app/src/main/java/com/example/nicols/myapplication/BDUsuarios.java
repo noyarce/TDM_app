@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class BDUsuarios extends SQLiteOpenHelper{
-    String sqlCreate = ("create table usurios (username text, password text, name text)");
+    String sqlCreate = ("create table usuarios (username text, password text, name text)");
 
         public BDUsuarios(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

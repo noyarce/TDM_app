@@ -51,22 +51,23 @@ public void clickRegistro (View v){
         Toast.makeText(this, "falta Nombre", Toast.LENGTH_LONG).show();
     }
 
-    String sqlquery = "select * from usuarios where username = '" + strUser + "'";
-    Cursor c = bd.rawQuery (sqlquery,null);
+    String sqlquery = "select * from usuarios where username = '"+strUser+"'";
+    Cursor c = bd.rawQuery(sqlquery,null);
 
     if (c.getCount() > 0) {
+        Toast.makeText(getApplicationContext(), "Usuario ya existe", Toast.LENGTH_SHORT).show();
+
+    }
+    else {
         ContentValues Nr = new ContentValues();
+
         Nr.put("username", strUser);
         Nr.put("password", strPass);
         Nr.put("user", strNombre);
 
-        bd.insert("Usuarios", null, Nr);
-        Toast.makeText(getApplicationContext(), "Usuario creado", Toast.LENGTH_SHORT);
+        bd.insert("usuarios", null, Nr);
+        Toast.makeText(getApplicationContext(), "Usuario creado", Toast.LENGTH_SHORT).show();
     }
-    else {
-        Toast.makeText(getApplicationContext(), "Usuario ya existe", Toast.LENGTH_SHORT);
-        return;
-        }
 }
 
 }

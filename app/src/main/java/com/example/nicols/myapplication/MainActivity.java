@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         strUser = user.getText().toString();
         strPass = pass.getText().toString();
 
-        BDUsuarios BDU = new BDUsuarios(getApplicationContext(),"Usuarios",null, 1);
+        BDUsuarios BDU = new BDUsuarios(getApplicationContext(),"usuarios",null, 1);
         SQLiteDatabase bd = BDU.getReadableDatabase();
 
-       String query = new String("select * From Usuarios where username = '"+strUser+"' and password = '"+strPass+"'");
+       String query = new String("select * From usuarios where username = '"+strUser+"' and password = '"+strPass+"'");
 
         Cursor c = bd.rawQuery (query,null);
 

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TallerDispositivosMoviles - Android </string>
+    <string name="user">User: </string>
+    <string name="pass">Password: </string>
+    <string name="login">iniciar sesion</string>
+    <string name="reg">Registrarse</string>
+    <string name="nombre">Nombre:</string>
+    <string name="back">Volver</string>
+</resources>

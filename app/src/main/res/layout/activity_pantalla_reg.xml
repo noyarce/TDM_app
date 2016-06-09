@@ -1,0 +1,148 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.nicols.myapplication.pantallaReg">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:layout_margin="50dp"
+                android:layout_width="328dp"
+                android:layout_height="243dp"
+                android:id="@+id/imageView"
+                android:layout_gravity="center"
+                android:layout_weight="6"
+                android:src="@drawable/escudo_transparente_640"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="75"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_marginLeft="50px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/nombre"
+                    android:id="@+id/nombreusuario"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal"
+                    />
+
+                <EditText
+                    android:layout_marginRight="50px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/e_name"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_marginLeft="50px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/user"
+                    android:id="@+id/username"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal"
+                    />
+
+                <EditText
+                    android:layout_marginRight="50px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/e_username"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:orientation="horizontal"
+                >
+                <TextView
+
+                    android:layout_marginLeft="50px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/pass"
+                    android:id="@+id/textView"
+                    android:layout_gravity="left"
+                    android:orientation="vertical"/>
+
+                <EditText
+                    android:layout_marginRight="50px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/e_password"
+                    android:layout_gravity="right"
+                    android:orientation="vertical"/>
+                />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="100"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:id="@+id/volver"
+                android:layout_weight="50"
+                android:layout_gravity="bottom"
+                android:onClick="clickvolver"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reg"
+                android:id="@+id/Registrar"
+                android:layout_weight="50"
+                android:layout_gravity="bottom"
+                android:onClick="clickRegistro"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>

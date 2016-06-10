@@ -25,10 +25,6 @@ public class pantallaReg extends AppCompatActivity {
 }
 
 public void clickRegistro (View v) {
-
-    BDUsuarios BDU = new BDUsuarios(getApplicationContext(), "Usuarios", null, 1);
-    SQLiteDatabase bd = BDU.getWritableDatabase();
-
     EditText user = (EditText) findViewById(R.id.e_username);
     EditText pass = (EditText) findViewById(R.id.e_password);
     EditText nombre = (EditText) findViewById(R.id.e_name);
@@ -42,23 +38,34 @@ public void clickRegistro (View v) {
     strNombre = nombre.getText().toString();
 
     if (TextUtils.isEmpty(strUser)) {
-        Toast.makeText(this, "falta User", Toast.LENGTH_LONG).show();
+        String falta = getString(R.string.falta, "User");
+        Toast.makeText(this,falta, Toast.LENGTH_LONG).show();
+    return;
     }
     if (TextUtils.isEmpty(strPass)) {
-        Toast.makeText(this, "falta Password", Toast.LENGTH_LONG).show();
+        String falta = getString(R.string.falta, "Password");
+        Toast.makeText(this, falta, Toast.LENGTH_LONG).show();
+        return;
     }
     if (TextUtils.isEmpty(strNombre)) {
-        Toast.makeText(this, "falta Nombre", Toast.LENGTH_LONG).show();
+        String falta = getString(R.string.falta, "Nombre");
+        Toast.makeText(this, falta , Toast.LENGTH_LONG).show();
+        return;
     }
 
-    try {
-    String sqlquery = "select * from usuarios where username = '" + strUser + "'";
-    Cursor c = bd.rawQuery(sqlquery, null);
+    BDUsuariosHelper BDU = new BDUsuariosHelper(getApplicationContext(), "bd_usuarios", null, 1);
+    SQLiteDatabase bd = BDU.getWritableDatabase();
+
+    Cursor c = bd.rawQuery("select * from usuarios where username = '"+strUser+"'", null);
+
+
         if (c.getCount() > 0) {
-            Toast.makeText(getApplicationContext(), "Usuario ya existe", Toast.LENGTH_SHORT).show();
-            c.close();
+            String user_existe = getString(R.string.user_existe, strUser);
+            Toast.makeText(getApplicationContext(), user_existe, Toast.LENGTH_SHORT).show();
+            return;
+            /*c.close(); */
         }
-        else {
+
             ContentValues Nr = new ContentValues();
 
             Nr.put("username", strUser);
@@ -67,11 +74,7 @@ public void clickRegistro (View v) {
 
             bd.insert("usuarios", null, Nr);
             Toast.makeText(getApplicationContext(), "Usuario creado", Toast.LENGTH_SHORT).show();
-        }
+
     }
-    finally {
-        c.close();
-        }
 }
 
-}

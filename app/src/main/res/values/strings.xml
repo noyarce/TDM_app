@@ -7,4 +7,7 @@
     <string name="nombre">Nombre:</string>
     <string name="back">Volver</string>
     <string name="logged">Login realizado con exito </string>
+    <string name="user_existe">El usuario : %1$s ya está registrado</string>
+    <string name="falta"> falta : %1$s </string>
+    <string name="error">Error en contraseña o Usuario</string>
 </resources>

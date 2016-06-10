@@ -9,6 +9,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nicols.myapplication.pantalla2">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/logged"
+        android:id="@+id/textView2"
+        android:layout_gravity="top" />
+
+
     <ImageView
         android:layout_margin="50dp"
         android:layout_width="328dp"
@@ -18,13 +28,5 @@
         android:layout_weight="6"
         android:src="@drawable/logged"
         />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/logged"
-        android:id="@+id/textView2"
-        android:layout_gravity="top" />
 
 </RelativeLayout>

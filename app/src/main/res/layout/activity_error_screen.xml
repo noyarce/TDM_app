@@ -9,15 +9,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nicols.myapplication.ErrorScreen">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Error en user o pass"
-        android:id="@+id/textView5"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp" />
+        android:text="@string/error"
+        android:id="@+id/textView2"
+        android:layout_gravity="top" />
+
+
+    <ImageView
+        android:layout_margin="50dp"
+        android:layout_width="328dp"
+        android:layout_height="243dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+        android:layout_weight="6"
+        android:src="@drawable/noahora"
+        />
 
 
     <LinearLayout

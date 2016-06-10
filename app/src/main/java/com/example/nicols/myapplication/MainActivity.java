@@ -15,34 +15,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+
     }
 
-    public void clickcheck (View v){
+    public void clicklogin (View v){
 
-        EditText user = (EditText) findViewById(R.id.txt_Username);
-        EditText pass = (EditText) findViewById(R.id.txt_password);
+        EditText user = (EditText) findViewById(R.id.e_username);
+        EditText pass = (EditText) findViewById(R.id.e_password);
         String strUser= user.getText().toString();
         String strPass= pass.getText().toString();
 
         BDUsuariosHelper BDU = new BDUsuariosHelper(getApplicationContext(),"bd_usuarios",null, 1);
         SQLiteDatabase bd = BDU.getReadableDatabase();
 
-       String query = ("select username, password from usuarios where username = '"+strUser+"' and password = '"+strPass+"'");
+       String query = ("select * from usuarios where username = '"+strUser+"' and password = '"+strPass+"'");
 
         Cursor c = bd.rawQuery (query,null);
+
         if(c.getCount()>0){
             Intent newvista = new Intent(getApplicationContext(), pantalla2.class);
             c.close();
             startActivity(newvista);
         }
             else{
-            Intent niwista = new Intent(getApplicationContext(),ErrorScreen.class);
+            Intent newvista = new Intent(getApplicationContext(),ErrorScreen.class);
             c.close();
-            startActivity(niwista);
+            startActivity(newvista);
 
         }
 
     }
+
     public void clickRegister (View v){
         Intent nuevaVista = new Intent(getApplicationContext(), pantallaReg.class);
         startActivity(nuevaVista);
